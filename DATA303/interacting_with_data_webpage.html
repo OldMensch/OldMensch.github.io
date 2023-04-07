@@ -1,44 +1,82 @@
 <!DOCTYPE html>
 <!-- saved from url=(0043)https://www.cs.wm.edu/~dwillner/homage.html -->
-<html style=background-color:#eeeeee;><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-  <title style = >Crime in the United States</title>
-  <style>
-    h1 {font-family:'Calibri';font-size:xxx-large;}
-  </style>
+<html style=background-color:#cccccc;><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title style = >Voting Behavior in Virginia</title>
 </head>
-<body style="font-family:calibri; text-align:center; margin-left: 10%; margin-right: 10%; background-color:#ffffff;">
+<body style="font-family:calibri; text-align:center; margin-left: 10%; margin-right: 10%; background-color:#eeeeee;">
 
   <!-- The title and any preliminary stuff -->
-  <h1>Crime in the United States</h1>
-  <p> 
+  <h1 style="font-size:xxx-large;"><br>Voting Behavior in Virginia<br><br><br></h1>
+  <!-- <p> 
     <i> These metrics are per-capita, that is, the crimes in each state is divided by the population of that state. 
       <br> Puerto Rico is not in the FBI crime dataset, therefore, it is always NaN for all of these maps.
       <br> All of the data here was taken from the FBI's <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/tables/table-69">Crime in the United States 2019</a> 
     </i>
     <br><br><br>
-  </p>
+  </p> -->
   
   <!-- Categories - Parallel coordinates plot of voting behavior -->
-  <h2>Total Crime</h2>
+  <h2>Voting Behavior vs Education vs Income</h2>
   <iframe src="./categories.html" width="100%" height="500" frameborder="0"></iframe>
-  <p style="text-align:left;"> 
-    DESCRIPTION
+  <p style="text-align:left; font-size:x-large;"> 
+    <i>The original source for the data can be found <a href="https://github.com/fivethirtyeight/data/tree/master/non-voters">here</a></i>.
+    <br><br>
+    &emsp;This is a parallel coordinates plot, which shows us voting behavior across the US, and demonstrates the correlation between 
+    voting behavior, education, and income. We can see how people who tend to vote always, or rarely/never tend to fall into certain 
+    education and income groups a little more or less.
+    
+    <br><br>
+    &emsp;There doesn't appear to be a strong relationship between voting frequency and either income or education. 
+    This is supported by the fact that the distribution of voting behaviors is nearly the same, for all subgroups 
+    of education and income. In every case but two, the largest group of people are sporadic voters, fewer always vote, 
+    and the least rarely/never vote. Only when education is "high school or less" or income is "< $40k" do we see that 
+    there are more people who rarely/never vote than who always vote.
+    <br><br>
+    &emsp;Although it is harder to tell with this particular parallel coordinates plot, education and income do appear to be correlated.
+    Those with the least education (high school or less) tend to end up in the lowest income category most of the time. Those with 
+    "some college" fall into all income categories fairly evenly, and those with "college" mostly tend to have an income over $125k, 
+    and if not that, then typically $75-$125k.
     <br><br><br>
   </p>
   
   <!-- Bubble - Bubble plot recording 4 dimensions of voting behavior: % turnout, % absentee, region, and # active registered voters-->
-  <h2>Total Crime</h2>
   <iframe src="./bubble.html" width="100%" height="700" frameborder="0"></iframe>
-  <p style="text-align:left;"> 
-    DESCRIPTION
+  <p style="text-align:left; font-size:x-large;"> 
+    <i>The original source for the data can be found <a href="https://demographics.coopercenter.org/">here</a></i>.
+    <br><br>
+    &emsp;This is a bubble plot with one bubble for each county in Virginia. The size represents the total number of active voters within the county,
+    the color represents the region of the state the county is in, and the X and Y axes measure the county's percentage of voter turnout 
+    (out of all active voters) versus the percentage of absentee voters (out of turnout).
+    <br><br>
+    &emsp;2020 is clearly different from the others, as it has the highest percentage of Absentee voters due to the effects of COVID-19. 
+    It wouldn't have been easier to tell using multiple plots, because the animation frame is all within the same space: it is better
+    at helping us see changes that occur over the X and Y axes at the same time. 
+    <br><br>
+    &emsp;2018 is also very different, because it has extraordinary voter turnout rates. Nearly a dozen counties mostly in Hampton Roads and 
+    Central Virginia saw over 100% voter turnout. This is due to how we measured it (total turnout / active registered voters). It must 
+    be due to an abnormally large amount of typically inactive voters choosing to vote that year, probably related to the frenzy surrounding 
+    Trump's presidency.
+    <br><br>
+    &emsp;There is also a noticeably higher voter turnout for presidential elections as opposed to midterm elections. With the exception of 2018, midterm 
+    elections tend to see a turnout of roughly 40-60% across all counties, but presidential elections see roughly 65-85% voter turnout
+
     <br><br><br>
   </p>
 
   <!-- Map - Map of Virginian voter turnout in 2022 -->
-  <h2>Total Crime</h2>
-  <iframe src="./map.html" width="100%" height="700" frameborder="0"></iframe>
-  <p style="text-align:left;"> 
-    DESCRIPTION
+  <h2>Voter Turnout for the 2022 General Election</h2>
+  <iframe src="./map.html" width="100%" height="800" frameborder="0"></iframe>
+  <p style="text-align:left; font-size:x-large;"> 
+    <i>The original source for the data can be found <a href="https://demographics.coopercenter.org/">here</a></i>.
+    <br><br>
+    &emsp;This is a cloropleth map which shows us the overall voter turnout for 2022 in Virginia, at the county-level. We can see the percentage 
+    of active voters in each county who came and voted that year.
+    <br><br>
+    &emsp;We can see that turnout is higher in the more urban, more populous 
+    counties of Northern and Eastern Virginia. The Appalachian counties see lower voter turnouts. We also can see that 
+    the counties that experienced the highest voter turnouts are Highland, Madison, Goochland, and Powhatan county, with 
+    Rappahannock having the highest turnout of 67.40%.
+    
     <br><br><br>
   </p>
 
