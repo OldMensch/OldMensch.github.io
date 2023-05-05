@@ -1,51 +1,201 @@
 <!DOCTYPE html>
 <!-- saved from url=(0043)https://www.cs.wm.edu/~dwillner/homage.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-  <title>Crime in the United States</title>
+<html style=background-color:#cccccc;><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>The Prevelancy of Certain Crimes in Certain States</title>
   <!--link rel="stylesheet" href="./homage_files/poem_style.css"-->
 </head>
-<body style="text-align:center; margin-left: 25%; margin-right: 25%;">
-  <h1>Crime in the United States</h1>
+
+<body style="text-align:center; margin: 0 10% 0 10%; background-color:#eeeeee; font-family:calibri;">
+  <h1>The Prevelancy of Certain Crimes in Certain States</h1>
   <p> 
-    <i> These metrics are per-capita, that is, the crimes in each state is divided by the population of that state. 
-      <br> Puerto Rico is not in the FBI crime dataset, therefore, it is always NaN for all of these maps.
-      <br> All of the data here was taken from the FBI's <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/tables/table-69">Crime in the United States 2019</a> 
+    <i> 
+      All of the data here was taken from the FBI's <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/tables/table-69">Crime in the United States 2019</a> 
     </i>
-    <br><br><br>
   </p>
+  <p style="margin: 0 20% 0 20%; text-align:left;">
+  Notes regarding the original dataset:
+  <br> &emsp;&emsp;&bull; "Total Crimes" does not include traffic arrests.
+  <br> &emsp;&emsp;&bull; "Total Violent Crimes" are offenses of murder and nonnegligent manslaughter, rape, robbery, and aggravated assault. "Property Crimes" are offenses of burglary, larceny-theft, motor vehicle theft, and arson.
+  <br> &emsp;&emsp;&bull; The rape figures in this table are aggregate totals of the data submitted based on both the legacy and revised Uniform Crime Reporting definitions.
+  <br> &emsp;&emsp;&bull; Drunkenness is not considered a crime in some states; therefore, the figures vary widely from state to state.
+  <br> &emsp;&emsp;&bull; Limited data for 2019 was available for Alabama.
+  <br> &emsp;&emsp;&bull; For DC, includes arrests reported by the DC Fire and Emergency Medical Services: Arson Investigation Unit and the Metro Transit Police. These agencies have no population associated with them.
+  <br> &emsp;&emsp;&bull; The Florida arrest counts for offenses against the family and children, drunkenness, disorderly conduct, vagrancy, suspicion, and curfew and loitering law violations are included under the category "All other offenses" (except for the data submitted by two Bureau of Indian Affairs agencies that provided data using those specific breakdowns).
+</p>
+<br><br>
   
-  <h2>Total Crime</h2>
-  <iframe src="./final_project_webpage_files/total_crime_map.html" width="100%" height="500" frameborder="0"></iframe>
-  <p style="text-align:left;"> 
-    Total crime appears to be strongest in South Dakota, Kentucky, and Mississippi, peaking in Illinois with 56.602 crimes per 1000 persons.
-    <br><br><br>
+  <!-- Loads all of our titles, descriptions, and so forth from a JSON file -->
+  <!-- The entire JSON file is here, because its a PAIN in the #$&#&$! to load a JSON file while testing an HTML file locally -->
+  <script> 
+    const text_bundle = {
+      "title":{
+        "total_crime": "Total Crime",
+        "total_violent_crime": "Total Violent Crime",
+        "total_property_crime": "Total Property Crime",
+        "murder": "Murder & Non-Negligent Manslaughter",
+        "rape": "Rape",
+        "robbery": "Robbery",
+        "aggravated_assault": "Aggravated Assault",
+        "burglary": "Burglary",
+        "larceny_theft": "Larceny/Theft",
+        "vehicle_theft": "Vehicle Theft",
+        "arson": "Arson",
+        "other_assaults": "Other Assaults",
+        "forgery_counterfeiting": "Forgery/Counterfeiting",
+        "fraud": "Fraud",
+        "embezzlement": "Embezzlement",
+        "possesion_of_stolen_goods": "Possession of Stolen Goods: Buying, Receiving, Possessing",
+        "vandalism": "Vandalism",
+        "illegally_carrying_or_possessing_weapons": "Illegally Carrying or Possessing Weapons",
+        "prostitution": "Prostitution",
+        "sex_crimes_but_not_rape_or_prostitution": "Sex Offenses, but not Rape or Prostitution",
+        "drug_abuse": "Drug Abuse",
+        "gambling": "Gambling",
+        "domestic_abuse": "Family & Child Abuse",
+        "dui": "Driving Under the Influence (DUI)",
+        "liquor_laws": "Liquor Laws",
+        "drunk": "Drunkeness",
+        "disorderly_conduct": "Disorderly Conduct",
+        "vagrancy": "Vagrancy",
+        "other_non_traffic_offences": "All other Offenses (Except traffic offenses)",
+        "suspicion": "Suspicion",
+        "curfew_and_loitering": "Curfew and Loitering"
+      },
+      "worst_state":{
+        "total_crime": "Illinois",
+        "total_violent_crime": "Alaska",
+        "total_property_crime": "Louisiana",
+        "murder": "Illinois",
+        "rape": "Alaska",
+        "robbery": "Maryland",
+        "aggravated_assault": "Alaska",
+        "burglary": "Louisiana",
+        "larceny_theft": "Alabama",
+        "vehicle_theft": "Alaska",
+        "arson": "Illinois",
+        "other_assaults": "Illinois",
+        "forgery_counterfeiting": "Arkansas",
+        "fraud": "Delaware",
+        "embezzlement": "Mississippi",
+        "possesion_of_stolen_goods": "Missouri",
+        "vandalism": "Illinois",
+        "illegally_carrying_or_possessing_weapons": "Illinois",
+        "prostitution": "Nevada",
+        "sex_crimes_but_not_rape_or_prostitution": "Nevada",
+        "drug_abuse": "South Dakota",
+        "gambling": "Hawaii",
+        "domestic_abuse": "Mississippi",
+        "dui": "South Dakota",
+        "liquor_laws": "Wyoming",
+        "drunk": "Wyoming",
+        "disorderly_conduct": "Wisconsin",
+        "vagrancy": "Nevada",
+        "other_non_traffic_offences": "Kentucky",
+        "suspicion": "Wyoming",
+        "curfew_and_loitering": "Wyoming"
+      }
+    }
+  </script>
+
+
+<!-- 
+This is a bunch of javascript which creates two dropdown menus which allow us to select
+which kind of crime we want to see, and
+whether our data is per capita, or the total number of crimes in the state
+-->
+  Select type of crime:
+  <select id="map_dropdown" onchange="
+      document.getElementById('map_title').textContent = text_bundle['title'][this.options[this.selectedIndex].value];
+      document.getElementById('map').src = './final_project_webpage_files/'+this.options[this.selectedIndex].value+'_map.html';
+      document.getElementById('worst_state').textContent = 'Worst state for this crime: '+text_bundle['worst_state'][this.options[this.selectedIndex].value]; ">
+  <!-- Programmatically adds all of the different crimes to our dropdown menu -->
+  <script>
+    {
+      for (const [key, value] of Object.entries(text_bundle['title'])) {
+          var option = document.createElement("option");
+          option.value = key;
+          option.text = value;
+          document.getElementById('map_dropdown').appendChild(option);
+      }
+    }
+  </script>
+  </select>
+
+  <!-- These are the actual objects which display our map, its title, and its relevant description 
+  The TITLE is my own personal description of the crime
+  the SUBTITLE is the title of the crime given in the original dataset's columns
+  the 
+  -->
+  <h2 >Per-Capita Crime Rates across the US</h2>
+  <p style="margin: 0 20% 0 20%; text-align:left;">
+    These metrics are per-capita, that is, the total number of crimes in each state is divided by the population of that state. 
+  </p>
+  <h2 id="map_title" >INVALID TITLE</h2>
+  <p id="worst_state" style="margin: 0 20% 0 20%;"></p>
+  <iframe id="map" src="" width="100%" height="700em" frameborder="0" ></iframe>
+  <br>
+  <p style="margin: 0 20% 0 20%; text-align:left;">
+    There are a lot of strange patterns to be found here:
+    <br><br>
+    For the vast majority of all types of crime, Illinois takes the cake. This makes sense, because of Chicago, the well-known crime capital of the US.
+    The state is also known for having some pretty tough regulations.
+    <br><br>
+    Strangely, Alaska often has very high rates of crime, for a lot of different crimes in this list. 
+    <br><br>
+    Robberies are most common in Maryland, at a slightly higher rate than in Illinois.
+    <br><br>
+    Burglaries are most common in Louisiana (which I suppose makes sense, I have heard of lots of burglaries occurring after hurricanes hit the state, maybe it is due to this),
+    followed closely by Nevada.
+    <br><br>
+    Larceny/Theft is similar to burglaries, but here, Alabama has the highest rates, with Louisiana second.
+    <br><br>
+    Fraud is highest in... Delaware. This makes sense since Delaware has some special tax loopholes that a lot of big businesses take advantage of, so I would
+    guess that a lot of the frauds are related to those businesses.
+    <br><br>
+    Embezzlement is highest in... Mississippi. Thats one to look into, I don't know anything off the top of my head.
+    <br><br>
+    Possession of stolen goods is most common in Missouri. I have a friend from Missouri who claims that "Yeah, thats because of all the stuff we stole from the feds." 
+    Interpret that how you will.
+    <br><br>
+    Very predictably, the crime of prostitution is decidedly common in Nevada. Other sex-related crimes are most common in Nevada, in addition to vagrancy.
+    <br><br>
+    Gambling crimes are quite strange, occuring rarely, but at the highest rate among Hawaiians. One might expect Nevada, but no, it's Hawaii.
+    <br><br>
+    Wyoming, the least populous state, strikes the highest for all drug- and alcohol-related crimes. 
+    <br><br>
+    I don't know what they are doing up in Wisconsin, but they have the most cases of disorderly conduct. This is probably due to a vaguely defined law.
+    <br><br>
+    A curious one is "All other offenses (except traffic offenses)", where Kentucky shows the highest rate of this aggregate category. The original dataset doesn't
+    provide us any real way to determine what exactly these crimes were, so, it's hard to say what these thousands of "other" crimes are.
+    <br><br><br><br>
+    ... and there are plenty more interesting patterns here. A lot of them likely arise from technicalities in the legal codes of the different states,
+    and all of them would require far more research to determine the true source of the crime rates.
+
+    </p>
+
+  <!-- This loads our first map to start: total crime per-capita -->
+  <script>
+    document.getElementById('map_dropdown').dispatchEvent(new Event('change'))
+  </script>
+
+  <br><br><br>
+
+  <!-- This loads our second map, which shows us the most common crime in each state -->
+  <h2 >The Most Commonly Committed Crimes</h2>
+  <p style="margin: 0 20% 0 20%; text-align:left;">
+  This map is a little different. Here we are shown, for each state, the crime which people are most often convicted of in that state. 
+  <br> This doesn't include any totals of crimes, or vaguely defined crimes like "other non-traffic offences" and "other assaults".
+  </p>
+  <p style="margin: 0 20% 0 20%;"></p>
+  <iframe src="final_project_webpage_files/most_common_crime.html" width="100%" height="700em" frameborder="0" ></iframe>
+  <br><br>
+  <p style="margin: 0 20% 0 20%; text-align:left;">
+  We can see that, for the majority of states, the most commonly commited crimes are drug-related offences. Several most often have DUI convictions or larceny and theft.
+  Only in Wisconsin, Illinois, and Connecticut do we see that the most commonly commited crime is, of all things, disorderly conduct. DC uniquely has mostly crimes which
+  fall under "liquor laws".
   </p>
 
-  <h2>Burglaries</h2>
-  <iframe src="./final_project_webpage_files/burglary_map.html" width="100%" height="500" frameborder="0"></iframe>
-  <p style="text-align:left;"> 
-    Burglaries... in Louisiana and Nevada? Louisiana makes some sense, I have heard of tons of property being 
-    stolen after hurricanes hit Louisiana. <br> It is highest in Louisiana with 1.089 burglaries per 1000 persons.
-    <br> California also makes sense, there are a lot of problems over there.
-    <br> But Nevada, I don't know. And Alaska I'm also left clueless. Alaska? Really? 
-    <br><br><br>
-  </p>
+  <br>
 
-  <h2>Fraud</h2>
-  <iframe src="./final_project_webpage_files/fraud_map.html" width="100%" height="500" frameborder="0"></iframe>
-  <p style="text-align:left;"> 
-    Most frauds are caught in... Delaware, with 1.352 frauds caught for every 1000 persons in Delaware.
-    <br> This makes sense since Delaware has some special tax loopholes that a lot of businesses take advantage of, so I would
-    <br> guess that a lot of the frauds are related to those businesses.
-    <br><br><br>
-  </p>
-
-  <h2>Gambling</h2>
-  <iframe src="./final_project_webpage_files/gambling_map.html" width="100%" height="500" frameborder="0"></iframe>
-  <p style="text-align:left;"> 
-    What's this? It appears that most gambling crimes occur in... Hawaii? I have no answer for this. 
-    <br> Even so, it's useful to note that this number is still extremely small: only 9 frauds every <i>100,000</i> persons.
-    <br><br><br>
-  </p>
 
 </body></html>
