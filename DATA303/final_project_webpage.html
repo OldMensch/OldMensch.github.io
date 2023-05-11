@@ -9,7 +9,11 @@
   <h1>The Prevelancy of Certain Crimes in Certain States</h1>
   <p> 
     <i> 
+      <img src="https://www.fbi.gov/++theme++11-14-22-fbi/images/fbi_seal_new.png" alt="FBI Seal" width=40em height=40em> 
       All of the data here was taken from the FBI's <a href="https://ucr.fbi.gov/crime-in-the-u.s/2019/crime-in-the-u.s.-2019/tables/table-69">Crime in the United States 2019</a> 
+      <img src="https://www.fbi.gov/++theme++11-14-22-fbi/images/fbi_seal_new.png" alt="FBI Seal" width=40em height=40em> 
+      <br>
+      A GeoJSON of the United States was taken from <a href="https://eric.clst.org/tech/usgeojson/">Eric Celeste's</a> website, the "US States" GeoJSON.
     </i>
   </p>
   <p style="margin: 0 20% 0 20%; text-align:left;">
@@ -128,49 +132,58 @@ whether our data is per capita, or the total number of crimes in the state
   -->
   <h2 >Per-Capita Crime Rates across the US</h2>
   <p style="margin: 0 20% 0 20%; text-align:left;">
-    These metrics are per-capita, that is, the total number of crimes in each state is divided by the population of that state. 
+    Here we are shown the number of crimes committed per 1000 persons in that state, for every state in the United States including the Disctrict of Columbia.
   </p>
-  <h2 id="map_title" >INVALID TITLE</h2>
+  <h3 id="map_title" >INVALID TITLE</h3>
   <p id="worst_state" style="margin: 0 20% 0 20%;"></p>
   <iframe id="map" src="" width="100%" height="700em" frameborder="0" ></iframe>
   <br>
   <p style="margin: 0 20% 0 20%; text-align:left;">
     There are a lot of strange patterns to be found here:
     <br><br>
-    For the vast majority of all types of crime, Illinois takes the cake. This makes sense, because of Chicago, the well-known crime capital of the US.
+    &emsp;&emsp;&bull;For the vast majority of all types of crime, Illinois takes the cake. This makes sense, because of Chicago, 
+    <a href="https://www.mystateline.com/news/chicago-named-murder-capital-of-the-u-s-in-new-report/">the well-known crime capital of the US.</a> 
     The state is also known for having some pretty tough regulations.
     <br><br>
-    Strangely, Alaska often has very high rates of crime, for a lot of different crimes in this list. 
+    &emsp;&emsp;&bull;Strangely, 
+    <a href="https://studybreaks.com/thoughts/why-is-the-crime-rate-so-high-in-alaska/">Alaska often has very high rates of crime</a>
+    for a lot of different crimes in this list. 
     <br><br>
-    Robberies are most common in Maryland, at a slightly higher rate than in Illinois.
+    &emsp;&emsp;&bull;Burglaries are most common in Louisiana. This is probably related to all of the hurricanes which, after devestating the state, 
+    leave it open for easy pickings by criminals. This has been explored before, in
+    <a href="https://aquila.usm.edu/cgi/viewcontent.cgi?article=1710&context=honors_theses">this paper</a>.
     <br><br>
-    Burglaries are most common in Louisiana (which I suppose makes sense, I have heard of lots of burglaries occurring after hurricanes hit the state, maybe it is due to this),
-    followed closely by Nevada.
+    &emsp;&emsp;&bull;Fraud is highest in Delaware. This makes sense since 
+    <a href="https://www.theguardian.com/us-news/2016/apr/06/panama-papers-us-tax-havens-delaware">Delaware's tax laws are particularly loose</a>, 
+    for big businesses take advantage of. It would make sense that a lot of these fraud cases are related to Delaware's popularity as a tax haven.
     <br><br>
-    Larceny/Theft is similar to burglaries, but here, Alabama has the highest rates, with Louisiana second.
+    &emsp;&emsp;&bull;Possession of stolen goods is most common in Missouri. Cities in Missouri have been reported to be
+    <a href="https://fox4kc.com/news/these-are-the-top-20-car-theft-capitals-of-the-u-s/">the car-theft capitals of the US</a>. It's possible these are related,
+    although those may fall under vehicle theft instead.
     <br><br>
-    Fraud is highest in... Delaware. This makes sense since Delaware has some special tax loopholes that a lot of big businesses take advantage of, so I would
-    guess that a lot of the frauds are related to those businesses.
+    &emsp;&emsp;&bull;Very predictably, the crime of prostitution is decidedly common in Nevada. Other sex-related crimes are most common in Nevada, in addition to vagrancy.
     <br><br>
-    Embezzlement is highest in... Mississippi. Thats one to look into, I don't know anything off the top of my head.
+    &emsp;&emsp;&bull;Gambling crimes are quite strange, occuring rarely, but at the highest rate among Hawaiians. One might expect Nevada, but no, it's Hawaii.
+    The reason for this is that 
+    <a href="https://www.findlaw.com/state/hawaii-law/hawaii-gambling-laws.html">Hawaii has very strict laws prohibiting gambling in the state</a>.
+    Any forms of Gambling are heavily clamped down upon by the state.
     <br><br>
-    Possession of stolen goods is most common in Missouri. I have a friend from Missouri who claims that "Yeah, thats because of all the stuff we stole from the feds." 
-    Interpret that how you will.
+    &emsp;&emsp;&bull;Wyoming, the least populous state, strikes the highest for all drug- and alcohol-related crimes. Most drug convictions
+    <a href="https://obamawhitehouse.archives.gov/sites/default/files/docs/state_profile_-_wyoming_0.pdf">are related to marijuana</a>,
+    which is
+    <a href="https://disa.com/maps/marijuana-legality-by-state">entirely prohibited</a>
+    in the state of Wyoming.
     <br><br>
-    Very predictably, the crime of prostitution is decidedly common in Nevada. Other sex-related crimes are most common in Nevada, in addition to vagrancy.
+    &emsp;&emsp;&bull;It is hard to say why, but Wisconsin has the highest rate of disorderly conduct, in addition to Illinois. This one is very interesting, 
+    and there don't seem to be any substantial investigations into this. Their legal definition for disorderly conduct can be found 
+    <a href="https://law.justia.com/codes/wyoming/2019/title-6/chapter-6/article-1/section-6-6-102/"> here</a>,
+    but it doesn't seem particularly vauge, or unusual. 
     <br><br>
-    Gambling crimes are quite strange, occuring rarely, but at the highest rate among Hawaiians. One might expect Nevada, but no, it's Hawaii.
-    <br><br>
-    Wyoming, the least populous state, strikes the highest for all drug- and alcohol-related crimes. 
-    <br><br>
-    I don't know what they are doing up in Wisconsin, but they have the most cases of disorderly conduct. This is probably due to a vaguely defined law.
-    <br><br>
-    A curious one is "All other offenses (except traffic offenses)", where Kentucky shows the highest rate of this aggregate category. The original dataset doesn't
-    provide us any real way to determine what exactly these crimes were, so, it's hard to say what these thousands of "other" crimes are.
+    &emsp;&emsp;&bull;A curious one is "All other offenses (except traffic offenses)", where Kentucky shows the highest rate of this aggregate category. The original dataset doesn't
+    provide us any real way to determine what exactly these crimes were, so, it's very difficult to say what these thousands of "other" crimes are.
     <br><br><br><br>
-    ... and there are plenty more interesting patterns here. A lot of them likely arise from technicalities in the legal codes of the different states,
-    and all of them would require far more research to determine the true source of the crime rates.
-
+    ... and there are plenty more interesting patterns here, many of which are difficult to explain. A lot of them likely arise from technicalities in the legal codes of the 
+    different states, or from anomalies particular to 2019 when the data was gathered, and all of them would require far more research to determine the true source of the crime rates.
     </p>
 
   <!-- This loads our first map to start: total crime per-capita -->
